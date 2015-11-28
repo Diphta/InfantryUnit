@@ -16,6 +16,7 @@ public class TicketHandler {
     private ArrayList<Ticket> tickets;
     private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
     private final String noTicketType = "Vælg venligst en billet type";
+    private String discountCode = "blfr2711";
     
 
     public TicketHandler() {
@@ -32,6 +33,10 @@ public class TicketHandler {
 
     public String getNoTicketType() {
         return noTicketType;
+    }
+
+    public String getDiscountCode() {
+        return discountCode;
     }
     
     public int getTotal() {

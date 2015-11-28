@@ -99,6 +99,7 @@ public class Test extends javax.swing.JFrame {
         lastNameField = new javax.swing.JTextField();
         discountBox = new javax.swing.JCheckBox();
         discountField = new javax.swing.JTextField();
+        discountButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
 
@@ -453,6 +454,14 @@ public class Test extends javax.swing.JFrame {
 
         discountField.setEditable(false);
 
+        discountButton.setText("Tilføj");
+        discountButton.setEnabled(false);
+        discountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discountButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout paymentLayout = new javax.swing.GroupLayout(payment);
         payment.setLayout(paymentLayout);
         paymentLayout.setHorizontalGroup(
@@ -477,7 +486,8 @@ public class Test extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(discountField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(discountBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(discountBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(discountButton))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -498,7 +508,9 @@ public class Test extends javax.swing.JFrame {
                 .addComponent(discountBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(discountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(discountButton)
+                .addGap(17, 17, 17)
                 .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -598,7 +610,7 @@ public class Test extends javax.swing.JFrame {
             cl.show(jPanel1, "Payment");
             movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
                     + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
-                    + "\n" + "Samlet pris = " + tktHandler.getTotal());
+                    + "\n" + "Samlet pris = " + tktHandler.getTotal() + " kr");
             movieInfo.setEditable(false);
             discountField.setEditable(false);
         }
@@ -684,8 +696,10 @@ public class Test extends javax.swing.JFrame {
     private void discountBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountBoxActionPerformed
         if (discountBox.isSelected()) {
             discountField.setEditable(true);
+            discountButton.setEnabled(true);
         } else {
             discountField.setEditable(false);
+            discountButton.setEnabled(false);
         }
         
     }//GEN-LAST:event_discountBoxActionPerformed
@@ -695,6 +709,14 @@ public class Test extends javax.swing.JFrame {
         cl.addLayoutComponent("start", jPanel2);
         cl.show(jPanel1, "start");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void discountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountButtonActionPerformed
+        if (discountField.getText().equalsIgnoreCase(tktHandler.getDiscountCode())) {
+                movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
+                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
+                    + "\n" + "Samlet pris = " + (int)(tktHandler.getTotal() * 0.80) + " kr");
+                } 
+    }//GEN-LAST:event_discountButtonActionPerformed
 
 
     /**
@@ -736,6 +758,7 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JButton PayButton;
     private javax.swing.JTextField ageField;
     private javax.swing.JCheckBox discountBox;
+    private javax.swing.JButton discountButton;
     private javax.swing.JTextField discountField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
