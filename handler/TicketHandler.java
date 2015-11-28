@@ -17,6 +17,7 @@ public class TicketHandler {
     private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
     private final String noTicketType = "Vælg venligst en billet type";
     private String discountCode = "blfr2711";
+    private String discountType = "Black friday 20 % rabat \n";
     
 
     public TicketHandler() {
@@ -37,6 +38,10 @@ public class TicketHandler {
 
     public String getDiscountCode() {
         return discountCode;
+    }
+
+    public String getDiscountType() {
+        return discountType;
     }
     
     public int getTotal() {

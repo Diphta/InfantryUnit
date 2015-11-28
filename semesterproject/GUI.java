@@ -440,7 +440,6 @@ public class GUI extends javax.swing.JFrame {
 
         movieInfo.setColumns(20);
         movieInfo.setRows(5);
-        movieInfo.setText("Du har bestilt X biletter\ntil filmen .....\n\nbiletternes pris pr. stk = P\n\nsamlet pris = P*X");
         jScrollPane1.setViewportView(movieInfo);
 
         lastNameField.setText("Efternavn");
@@ -714,7 +713,7 @@ public class GUI extends javax.swing.JFrame {
         if (discountField.getText().equalsIgnoreCase(tktHandler.getDiscountCode())) {
                 movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
                     + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
-                    + "\n" + "Samlet pris = " + (int)(tktHandler.getTotal() * 0.80) + " kr");
+                    + "\n" + tktHandler.getDiscountType() + "Samlet pris = " + (int)(tktHandler.getTotal() * 0.80) + " kr");
                 } 
     }//GEN-LAST:event_discountButtonActionPerformed
 

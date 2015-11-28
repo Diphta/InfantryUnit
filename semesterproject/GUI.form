@@ -707,7 +707,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Du har bestilt X biletter&#xa;til filmen .....&#xa;&#xa;biletternes pris pr. stk = P&#xa;&#xa;samlet pris = P*X"/>
                   </Properties>
                 </Component>
               </SubComponents>
