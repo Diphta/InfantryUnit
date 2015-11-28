@@ -665,10 +665,11 @@ public class Test extends javax.swing.JFrame {
                      hall.bookSeat(row, seat);
                     break;
                 default:
+                    JOptionPane.showMessageDialog(this, tktHandler.getNoTicketType());
                     break;
             }
             
-            System.out.println(ticket.toString()); 
+            
             }
             if(evt.getButton()==3){
                 hall.clearSeat(row, seat);

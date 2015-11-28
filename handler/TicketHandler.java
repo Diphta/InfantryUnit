@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class TicketHandler {
     private ArrayList<Ticket> tickets;
     private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
+    private final String noTicketType = "Vælg venligst en billet type";
     
 
     public TicketHandler() {
@@ -27,6 +28,10 @@ public class TicketHandler {
 
     public String getTooManyTickets() {
         return tooManyTickets;
+    }
+
+    public String getNoTicketType() {
+        return noTicketType;
     }
     
     public int getTotal() {
