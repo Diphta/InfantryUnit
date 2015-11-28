@@ -6,6 +6,7 @@
 package semesterproject;
 
 import Classes.*;
+import database.Database;
 import handler.TicketHandler;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -93,16 +94,12 @@ public class Test extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         ageField = new javax.swing.JTextField();
         phoneField = new javax.swing.JTextField();
-        cardNumberField = new javax.swing.JTextField();
-        expiration_year = new javax.swing.JComboBox();
-        expiration_month = new javax.swing.JComboBox();
         PayButton = new javax.swing.JButton();
-        controlDigitsField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        movie_info = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        movieInfo = new javax.swing.JTextArea();
+        lastNameField = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -124,7 +121,6 @@ public class Test extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/semesterproject/Udklip111.PNG"))); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Star Wars - The Force Awakens", "Mockingjay - Part 2", "Hotel Transylvania 2", "Spectre", "Paranormal Activity - The Ghost Dimension", "Crimson Peak", "Maze Runner - The Scorch Trials", "Inside Out", "Quist - Et Hardkåre ActionBrag", "Back Door Sluts 8" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -147,8 +143,8 @@ public class Test extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox4, 0, 344, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(228, 228, 228))
         );
@@ -163,7 +159,7 @@ public class Test extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 122, Short.MAX_VALUE))
+                        .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)))
@@ -432,17 +428,11 @@ public class Test extends javax.swing.JFrame {
 
         jPanel1.add(seatChoiceSal3, "card7");
 
-        nameField.setText("Name");
+        nameField.setText("Fornavn");
 
-        ageField.setText("Age");
+        ageField.setText("Alder");
 
-        phoneField.setText("PhoneNumber");
-
-        cardNumberField.setText("CardNumber");
-
-        expiration_year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", " " }));
-
-        expiration_month.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01 (Januar)", "02 (Februar)", "03 (Marts)", "04 (April)", "05 (Maj)", "06 (Juni)", "07 (Juli)", "08 (August)", "09 (September)", "10 (Oktober)", "11 (November)", "12 (December)" }));
+        phoneField.setText("tlf Nummer");
 
         PayButton.setText("Betal");
         PayButton.addActionListener(new java.awt.event.ActionListener() {
@@ -451,19 +441,12 @@ public class Test extends javax.swing.JFrame {
             }
         });
 
-        controlDigitsField.setText("ControlDigits");
-        controlDigitsField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                controlDigitsFieldActionPerformed(evt);
-            }
-        });
+        movieInfo.setColumns(20);
+        movieInfo.setRows(5);
+        movieInfo.setText("Du har bestilt X biletter\ntil filmen .....\n\nbiletternes pris pr. stk = P\n\nsamlet pris = P*X");
+        jScrollPane1.setViewportView(movieInfo);
 
-        movie_info.setColumns(20);
-        movie_info.setRows(5);
-        movie_info.setText("Du har bestilt X biletter\ntil filmen .....\n\nbiletternes pris pr. stk = P\n\nsamlet pris = P*X");
-        jScrollPane1.setViewportView(movie_info);
-
-        jLabel2.setText("/");
+        lastNameField.setText("Efternavn");
 
         javax.swing.GroupLayout paymentLayout = new javax.swing.GroupLayout(payment);
         payment.setLayout(paymentLayout);
@@ -473,25 +456,15 @@ public class Test extends javax.swing.JFrame {
                 .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paymentLayout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paymentLayout.createSequentialGroup()
-                                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paymentLayout.createSequentialGroup()
-                                .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(paymentLayout.createSequentialGroup()
-                                        .addComponent(expiration_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(expiration_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(paymentLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(246, 246, 246)
-                                .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 422, Short.MAX_VALUE)
+                                .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paymentLayout.createSequentialGroup()
+                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(paymentLayout.createSequentialGroup()
                         .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paymentLayout.createSequentialGroup()
@@ -499,12 +472,12 @@ public class Test extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(paymentLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(cardNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(paymentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(controlDigitsField, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paymentLayout.setVerticalGroup(
@@ -512,48 +485,38 @@ public class Test extends javax.swing.JFrame {
             .addGroup(paymentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cardNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(controlDigitsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paymentLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paymentLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(expiration_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(expiration_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
+                .addGap(113, 113, 113)
+                .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel1.add(payment, "card4");
 
-        jToggleButton1.setText("jToggleButton1");
+        jButton3.setText("jButton3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(jToggleButton1)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addContainerGap(591, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(jToggleButton1)
-                .addContainerGap(246, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(432, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel3, "card3");
@@ -577,10 +540,6 @@ public class Test extends javax.swing.JFrame {
         cl.next(jPanel1);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void controlDigitsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlDigitsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_controlDigitsFieldActionPerformed
-
     private void PayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayButtonActionPerformed
         boolean customerFail = false;
 
@@ -591,7 +550,15 @@ public class Test extends javax.swing.JFrame {
             customerFail = true;
             nameField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-
+        
+        if (lastNameField.getText().matches("[a-zA-Z]+")) {
+            lastNameField.setBorder(null);
+            lastNameField.updateUI();
+        } else {
+            customerFail = true;
+            lastNameField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
+        }
+        
         if (ageField.getText().matches("[0-9]+") && ageField.getText().length() <= 3) {
             ageField.setBorder(null);
             ageField.updateUI();
@@ -607,21 +574,7 @@ public class Test extends javax.swing.JFrame {
             customerFail = true;
             phoneField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-        if (cardNumberField.getText().matches("[0-9]+") && cardNumberField.getText().length() == 16) {
-            cardNumberField.setBorder(null);
-            cardNumberField.updateUI();
-        } else {
-            customerFail = true;
-            cardNumberField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
-        }
-        if (controlDigitsField.getText().matches("[0-9]+") && controlDigitsField.getText().length() == 3) {
-            controlDigitsField.setBorder(null);
-            controlDigitsField.updateUI();
-        } else {
-            customerFail = true;
-            controlDigitsField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
-        }
-
+        
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         if (!customerFail) {
             cl.next(jPanel1);
@@ -631,7 +584,13 @@ public class Test extends javax.swing.JFrame {
     private void payButtonHall1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonHall1ActionPerformed
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.addLayoutComponent("Payment", payment);
-        cl.show(jPanel1, "Payment");
+        if (tktHandler.getTickets().size() > 0) {
+            cl.show(jPanel1, "Payment");
+            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " biletter\n" 
+                    + "til filmen .....\n" + "\n" + "biletternes pris pr. stk = P\n" +
+                    "\n" + "samlet pris = " + tktHandler.getTotal());
+            movieInfo.setEditable(false);
+        }
     }//GEN-LAST:event_payButtonHall1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -641,13 +600,17 @@ public class Test extends javax.swing.JFrame {
     private void payButtonHall2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonHall2ActionPerformed
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.addLayoutComponent("Payment", payment);
-        cl.show(jPanel1, "Payment");
+        if (tktHandler.getTickets().size() > 0) {
+            cl.show(jPanel1, "Payment");
+        }
     }//GEN-LAST:event_payButtonHall2ActionPerformed
 
     private void payButtonHall3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonHall3ActionPerformed
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.addLayoutComponent("Payment", payment);
-        cl.show(jPanel1, "Payment");
+        if (tktHandler.getTickets().size() > 0) {
+            cl.show(jPanel1, "Payment");
+        }
     }//GEN-LAST:event_payButtonHall3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
@@ -675,22 +638,26 @@ public class Test extends javax.swing.JFrame {
             int seat = hall.translateX(evt.getX());
             int row = hall.translateY(evt.getY());
             Ticket ticket = new Ticket();
-            
+            if(seat >= 0 && row >= 0){
+            if(evt.getButton()==1){
             switch (ticketType) {
                 case "Voksen billet": ticket = new TicketAdult();
+                    tktHandler.getTickets().add(ticket);
+                     hall.bookSeat(row, seat);
                     break;
                 case "Pensionist billet": ticket = new TicketElder();
+                    tktHandler.getTickets().add(ticket);
+                     hall.bookSeat(row, seat);
                     break;
                 case "Børne billet": ticket =  new TicketMinor();
+                    tktHandler.getTickets().add(ticket);
+                     hall.bookSeat(row, seat);
                     break;
                 default:
                     break;
             }
-            tktHandler.getTickets().add(ticket);
-            System.out.println(ticket.toString());
-            if(seat >= 0 && row >= 0){
-            if(evt.getButton()==1){
-                hall.bookSeat(row, seat);
+            
+            System.out.println(ticket.toString()); 
             }
             if(evt.getButton()==3){
                 hall.clearSeat(row, seat);
@@ -741,12 +708,9 @@ public class Test extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PayButton;
     private javax.swing.JTextField ageField;
-    private javax.swing.JTextField cardNumberField;
-    private javax.swing.JTextField controlDigitsField;
-    private javax.swing.JComboBox expiration_month;
-    private javax.swing.JComboBox expiration_year;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
@@ -754,7 +718,6 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -774,8 +737,8 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JTextArea movie_info;
+    private javax.swing.JTextField lastNameField;
+    private javax.swing.JTextArea movieInfo;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton payButtonHall1;
     private javax.swing.JButton payButtonHall2;

@@ -28,5 +28,13 @@ public class TicketHandler {
         return tooManyTickets;
     }
     
+    public int getTotal() {
+        int sum = 0;
+        for (Ticket ticket : tickets) {
+            sum += ticket.getPrice();
+        }
+        return sum;
+    }
+    
     
 }

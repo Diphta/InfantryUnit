@@ -10,10 +10,11 @@ package Classes;
  * @author Simon
  */
 public class TicketAdult extends Ticket {
-    private int Voksenbillet = 75;
+    
     public TicketAdult(/*Costumer costumer*/) {
         //super(costumer);
         this.name = "voksen";
+        this.price = 75;
     }
     
 }
