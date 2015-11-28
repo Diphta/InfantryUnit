@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class TicketHandler {
     private ArrayList<Ticket> tickets;
     private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
+    
 
     public TicketHandler() {
         this.tickets = new ArrayList<>();
@@ -34,6 +35,14 @@ public class TicketHandler {
             sum += ticket.getPrice();
         }
         return sum;
+    }
+    
+    public String getTicketTypes() {
+        String ticketType = "";
+        for (Ticket ticket : tickets) {
+            ticketType += ticket.getTicketType() + "\n";
+        }
+        return ticketType;
     }
     
     

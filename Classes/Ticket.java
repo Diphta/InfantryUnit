@@ -11,7 +11,7 @@ package Classes;
  */
 public class Ticket {
     private Costumer costumer;
-    String name;
+    String type;
     int price;
 
     public Ticket(/**Costumer costumer*/) {
@@ -32,8 +32,8 @@ public class Ticket {
 
    
     
-    public String toString() {
-        return name;
+    public String getTicketType() {
+        return type;
     }
 
 //    public Ticket generateReceit() {

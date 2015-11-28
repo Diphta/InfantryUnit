@@ -13,7 +13,7 @@ public class TicketAdult extends Ticket {
     
     public TicketAdult(/*Costumer costumer*/) {
         //super(costumer);
-        this.name = "voksen";
+        this.type = "Voksen billet: 75 kr";
         this.price = 75;
     }
     

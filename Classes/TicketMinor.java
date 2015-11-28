@@ -13,7 +13,7 @@ public class TicketMinor extends Ticket {
     
     public TicketMinor(/*Costumer costumer*/) {
         //super(costumer);
-        this.name = "barn";
+        this.type = "Børne billet: 50 kr";
         this.price = 50;
     }
 

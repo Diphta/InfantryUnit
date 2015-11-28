@@ -55,7 +55,6 @@ public class Test extends javax.swing.JFrame {
             }
         }
         ;
-        jButton5 = new javax.swing.JButton();
         ticketTypeBox = new javax.swing.JComboBox();
         payButtonHall1 = new javax.swing.JButton();
         seatChoiceSal2 = new javax.swing.JPanel();
@@ -98,6 +97,8 @@ public class Test extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         movieInfo = new javax.swing.JTextArea();
         lastNameField = new javax.swing.JTextField();
+        discountBox = new javax.swing.JCheckBox();
+        discountField = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
 
@@ -191,8 +192,6 @@ public class Test extends javax.swing.JFrame {
             .addGap(0, 346, Short.MAX_VALUE)
         );
 
-        jButton5.setText("Tilføj billetter");
-
         ticketTypeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Billet type", "Voksen billet", "Børne billet", "Pensionist billet" }));
 
         payButtonHall1.setText("Betal");
@@ -211,11 +210,9 @@ public class Test extends javax.swing.JFrame {
                 .addGroup(seatChoiceSal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatChoiceSal1Layout.createSequentialGroup()
-                        .addGap(0, 300, Short.MAX_VALUE)
+                        .addGap(0, 444, Short.MAX_VALUE)
                         .addComponent(ticketTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)
-                        .addGap(8, 8, 8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(payButtonHall1)))
                 .addContainerGap())
         );
@@ -227,7 +224,6 @@ public class Test extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(seatChoiceSal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ticketTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
                     .addComponent(payButtonHall1)))
         );
 
@@ -448,14 +444,23 @@ public class Test extends javax.swing.JFrame {
 
         lastNameField.setText("Efternavn");
 
+        discountBox.setText("Jeg har en rabatkode");
+        discountBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discountBoxActionPerformed(evt);
+            }
+        });
+
+        discountField.setEditable(false);
+
         javax.swing.GroupLayout paymentLayout = new javax.swing.GroupLayout(payment);
         payment.setLayout(paymentLayout);
         paymentLayout.setHorizontalGroup(
             paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paymentLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,25 +472,21 @@ public class Test extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(paymentLayout.createSequentialGroup()
                         .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(paymentLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(paymentLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(discountField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(discountBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(paymentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paymentLayout.setVerticalGroup(
             paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(paymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -493,7 +494,11 @@ public class Test extends javax.swing.JFrame {
                 .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(discountBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(discountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(PayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -501,6 +506,11 @@ public class Test extends javax.swing.JFrame {
         jPanel1.add(payment, "card4");
 
         jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -586,10 +596,11 @@ public class Test extends javax.swing.JFrame {
         cl.addLayoutComponent("Payment", payment);
         if (tktHandler.getTickets().size() > 0) {
             cl.show(jPanel1, "Payment");
-            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " biletter\n" 
-                    + "til filmen .....\n" + "\n" + "biletternes pris pr. stk = P\n" +
-                    "\n" + "samlet pris = " + tktHandler.getTotal());
+            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
+                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
+                    + "\n" + "Samlet pris = " + tktHandler.getTotal());
             movieInfo.setEditable(false);
+            discountField.setEditable(false);
         }
     }//GEN-LAST:event_payButtonHall1ActionPerformed
 
@@ -669,6 +680,21 @@ public class Test extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jPanel5MousePressed
 
+    private void discountBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountBoxActionPerformed
+        if (discountBox.isSelected()) {
+            discountField.setEditable(true);
+        } else {
+            discountField.setEditable(false);
+        }
+        
+    }//GEN-LAST:event_discountBoxActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.addLayoutComponent("start", jPanel2);
+        cl.show(jPanel1, "start");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -708,11 +734,12 @@ public class Test extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PayButton;
     private javax.swing.JTextField ageField;
+    private javax.swing.JCheckBox discountBox;
+    private javax.swing.JTextField discountField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
