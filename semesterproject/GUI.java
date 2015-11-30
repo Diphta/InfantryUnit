@@ -39,7 +39,7 @@ public class GUI extends javax.swing.JFrame {
     private void addTimes() {
         timeBox.setEnabled(false);
 
-        Show theShow = (Show)movieBox.getSelectedItem();
+        Show theShow = (Show) movieBox.getSelectedItem();
         ArrayList<String> times = ShowHandler.getInstance().getTimes(theShow);
         for (String time : times) {
             timeBox.addItem(time);
@@ -690,47 +690,48 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_seatChoiceSal1MousePressed
 
     private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
-        if (tktHandler.getTickets().size() == 4) {
-            JOptionPane.showMessageDialog(this, tktHandler.getTooManyTickets());
-        } else {
-            String ticketType;
-            ticketType = (String) ticketTypeBox.getSelectedItem();
-            int seat = hall.translateX(evt.getX());
-            int row = hall.translateY(evt.getY());
-            Ticket ticket = new Ticket();
-            if (seat >= 0 && row >= 0) {
-                if (evt.getButton() == 1) {
-                    switch (ticketType) {
-                        case "Voksen billet":
-                            ticket = new TicketAdult();
-                            tktHandler.getTickets().add(ticket);
-                            hall.bookSeat(row, seat);
-                            break;
-                        case "Pensionist billet":
-                            ticket = new TicketElder();
-                            tktHandler.getTickets().add(ticket);
-                            hall.bookSeat(row, seat);
-                            break;
-                        case "Børne billet":
-                            ticket = new TicketMinor();
-                            tktHandler.getTickets().add(ticket);
-                            hall.bookSeat(row, seat);
-                            break;
-                        default:
-                            JOptionPane.showMessageDialog(this, tktHandler.getNoTicketType());
-                            break;
-                    }
+        String ticketType;
+        ticketType = (String) ticketTypeBox.getSelectedItem();
+        int seat = hall.translateX(evt.getX());
+        int row = hall.translateY(evt.getY());
+        Ticket ticket = new Ticket();
+        if (seat >= 0 && row >= 0) {
+            if (evt.getButton() == 1) {
+                if (tktHandler.getTickets().size() == 4) {
+                JOptionPane.showMessageDialog(this, tktHandler.getTooManyTickets());
+                } else {
+                switch (ticketType) {
+                    case "Voksen billet":
+                        ticket = new TicketAdult();
+                        tktHandler.getTickets().add(ticket);
+                        hall.bookSeat(row, seat);
+                        break;
+                    case "Pensionist billet":
+                        ticket = new TicketElder();
+                        tktHandler.getTickets().add(ticket);
+                        hall.bookSeat(row, seat);
+                        break;
+                    case "Børne billet":
+                        ticket = new TicketMinor();
+                        tktHandler.getTickets().add(ticket);
+                        hall.bookSeat(row, seat);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(this, tktHandler.getNoTicketType());
+                        break;
+                }
 
-                }
-                if (evt.getButton() == 3) {
-                    hall.clearSeat(row, seat);
-                    tktHandler.getTickets().remove(tktHandler.getTickets().size() - 1);
-                }
-                System.out.println(tktHandler.getTickets().toString());
             }
+            }
+            if (evt.getButton() == 3) {
+                hall.clearSeat(row, seat);
+                tktHandler.getTickets().remove(tktHandler.getTickets().size() - 1);
+            }
+            
         }
+    
 
-        jPanel5.repaint();
+    jPanel5.repaint ();
 
     }//GEN-LAST:event_jPanel5MousePressed
 
@@ -777,16 +778,32 @@ public class GUI extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GUI.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GUI.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GUI.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
