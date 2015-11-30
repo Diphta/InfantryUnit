@@ -52,6 +52,12 @@ public class Show implements Comparable<Show> {
         this.name = name;
     }
 
+    public String getHallNumber() {
+        return hallNumber;
+    }
+    
+    
+
     @Override
     public String toString(){
         return name;
