@@ -5,6 +5,7 @@
  */
 package database;
 
+import Classes.Show;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -52,28 +53,24 @@ public class Database {
         return db;
     }
     
-        public ArrayList<String> getMovies() {
-        ArrayList<String> str = new ArrayList<>();
-        
-        try {
-            String statement;
-            statement = "SELECT * FROM film";
-            ResultSet rs = con.createStatement().executeQuery(statement);
-            while (rs.next()) {
-                str.add((rs.getString("filmNavn") + //" "
-//                          + rs.getString("efternavn") + " "
-//                          + rs.getString("email") + " "
-//                          + rs.getString("tlf") + " "
-//                          + rs.getString("fødselsdag") + " "
-/*                        + rs.getString("postnummer") + */"\n")); 
-            }
-            return str;
-           
-        } catch (SQLException ex) {
-            System.out.println("dd");
-        }
-        return str;
-    
-}
+//        public ArrayList<Show> getMovies() {
+//        ArrayList<Show> str = new ArrayList<>();
+//        
+//        try {
+//            String statement; 
+//            statement = "select film.filmNavn FROM film;";
+//            ResultSet rs = con.createStatement().executeQuery(statement);
+//            while (rs.next()) {
+//                Show show = new Show(rs.getString("filmNavn"), rs.getString("tider")); 
+//                str.add((rs.getString("filmNavn") + "\n")); 
+//            }
+//            return str;
+//           
+//        } catch (SQLException ex) {
+//            System.out.println("dd");
+//        }
+//        return str;
+//    
+//}
 
 }

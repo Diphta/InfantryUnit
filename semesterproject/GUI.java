@@ -35,13 +35,13 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void addMovies() {
-        movieBox.setEnabled(false);
-        movieBox.removeAllItems();
-        ArrayList<String> movies = Database.getDb().getMovies();
-        for (String movie : movies) {
-            movieBox.addItem(movie);
-        }
-        movieBox.setEnabled(true);
+//        movieBox.setEnabled(false);
+//        movieBox.removeAllItems();
+//        ArrayList<Show> movies = Database.getDb().getMovies();
+//        for (String movie : movies) {
+//            movieBox.addItem(movie);
+//        }
+//        movieBox.setEnabled(true);
 
     }
 
@@ -650,17 +650,17 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_payButtonHall3ActionPerformed
 
     private void movieBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieBoxActionPerformed
-        Show selectedShow;
-        if (movieBox.isEnabled()) {
-            selectedShow = (Show) jComboBox1.getSelectedItem();
-            if (selectedShow != null) {
-                jComboBox3.removeAllItems();
-                ArrayList<Show> tempShow = selectedShow.getShow();
-                for (Show show : tempShow) {
-                    jComboBox3.addItem(show);
-                }
-            }
-        }
+//        Show selectedShow;
+//        if (movieBox.isEnabled()) {
+//            selectedShow = (Show) jComboBox1.getSelectedItem();
+//            if (selectedShow != null) {
+//                jComboBox3.removeAllItems();
+//                ArrayList<Show> tempShow = selectedShow.getShow();
+//                for (Show show : tempShow) {
+//                    jComboBox3.addItem(show);
+//                }
+//            }
+//        }
     }//GEN-LAST:event_movieBoxActionPerformed
 
     private void seatChoiceSal1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seatChoiceSal1MousePressed
@@ -703,6 +703,7 @@ public class GUI extends javax.swing.JFrame {
                 if (evt.getButton() == 3) {
                     hall.clearSeat(row, seat);
                 }
+               
             }
         }
 

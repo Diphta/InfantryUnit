@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Show {
 
     private String name;
-    private double time;
-    //private ShowType showType;
+    private String[] time;
 
-    public Show(String name, double time) {
+
+    public Show(String name, String[] time) {
         this.name = name;
         this.time = time;
     }
@@ -30,16 +30,12 @@ public class Show {
         this.name = name;
     }
 
-    public double getTime() {
+    public String[] getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(String[] time) {
         this.time = time;
-    }
-
-    public ArrayList<Show> getShow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
