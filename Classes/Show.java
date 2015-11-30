@@ -14,12 +14,15 @@ import java.util.ArrayList;
 public class Show {
 
     private String name;
-    private String[] time;
+    private String time;
+    private String date;
+    private Hall hall;
 
-
-    public Show(String name, String[] time) {
+    public Show(String name, String time, String date, Hall hall) {
         this.name = name;
         this.time = time;
+        this.date = date;
+        this.hall = hall;
     }
 
     public String getName() {
