@@ -724,8 +724,9 @@ public class GUI extends javax.swing.JFrame {
                 }
                 if (evt.getButton() == 3) {
                     hall.clearSeat(row, seat);
+                    tktHandler.getTickets().remove(tktHandler.getTickets().size() - 1);
                 }
-
+                System.out.println(tktHandler.getTickets().toString());
             }
         }
 
