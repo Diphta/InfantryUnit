@@ -7,6 +7,7 @@ package semesterproject;
 
 import Classes.*;
 import database.Database;
+import handler.ShowHandler;
 import handler.TicketHandler;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -32,17 +33,32 @@ public class GUI extends javax.swing.JFrame {
         tktHandler = new TicketHandler();
         initComponents();
         addMovies();
+        timeBox.setEnabled(false);
+    }
+
+    private void addTimes() {
+        timeBox.setEnabled(false);
+
+        Show theShow = (Show)movieBox.getSelectedItem();
+        ArrayList<String> times = ShowHandler.getInstance().getTimes(theShow);
+        for (String time : times) {
+            timeBox.addItem(time);
+        }
+
+        timeBox.setEnabled(true);
     }
 
     public void addMovies() {
-//        movieBox.setEnabled(false);
-//        movieBox.removeAllItems();
-//        ArrayList<Show> movies = Database.getDb().getMovies();
-//        for (String movie : movies) {
-//            movieBox.addItem(movie);
-//        }
-//        movieBox.setEnabled(true);
+        movieBox.setEnabled(false);
+        movieBox.removeAllItems();
+        ArrayList<Show> shows = ShowHandler.getInstance().getShows();
+        ShowHandler.getInstance().removeDuplicates(shows);
 
+        for (Show show : shows) {
+            movieBox.addItem(show);
+        }
+
+        movieBox.setEnabled(true);
     }
 
     /**
@@ -56,7 +72,7 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox();
+        timeBox = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         movieBox = new javax.swing.JComboBox();
@@ -124,7 +140,12 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tider" }));
+        timeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tider" }));
+        timeBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timeBoxActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Videre");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +181,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(movieBox, 0, 344, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(228, 228, 228))
         );
         jPanel2Layout.setVerticalGroup(
@@ -172,7 +193,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(111, 111, 111)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(timeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(movieBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -650,7 +671,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_payButtonHall3ActionPerformed
 
     private void movieBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieBoxActionPerformed
-//        Show selectedShow;
+        addTimes();
+        //Show selectedShow;
 //        if (movieBox.isEnabled()) {
 //            selectedShow = (Show) jComboBox1.getSelectedItem();
 //            if (selectedShow != null) {
@@ -703,7 +725,7 @@ public class GUI extends javax.swing.JFrame {
                 if (evt.getButton() == 3) {
                     hall.clearSeat(row, seat);
                 }
-               
+
             }
         }
 
@@ -735,6 +757,10 @@ public class GUI extends javax.swing.JFrame {
                     + "\n" + tktHandler.getDiscountType() + "Samlet pris = " + (int) (tktHandler.getTotal() * 0.80) + " kr");
         }
     }//GEN-LAST:event_discountButtonActionPerformed
+
+    private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
+
+    }//GEN-LAST:event_timeBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -784,7 +810,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -806,7 +831,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextField lastNameField;
-    private javax.swing.JComboBox movieBox;
+    private javax.swing.JComboBox<Show> movieBox;
     private javax.swing.JTextArea movieInfo;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton payButtonHall1;
@@ -818,5 +843,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel seatChoiceSal2;
     private javax.swing.JPanel seatChoiceSal3;
     private javax.swing.JComboBox ticketTypeBox;
+    private javax.swing.JComboBox timeBox;
     // End of variables declaration//GEN-END:variables
+
 }

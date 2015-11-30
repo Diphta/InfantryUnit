@@ -11,18 +11,21 @@ import java.util.ArrayList;
  *
  * @author philip
  */
-public class Show {
+public class Show implements Comparable<Show> {
 
+    private int id;
     private String name;
     private String time;
     private String date;
-    private Hall hall;
+    private String hallNumber;
+    //private Hall hall;
 
-    public Show(String name, String time, String date, Hall hall) {
+    public Show(int id, String name, String time, String date, String hallNumber) {
+        this.id = id;
         this.name = name;
         this.time = time;
         this.date = date;
-        this.hall = hall;
+        this.hallNumber = hallNumber;
     }
 
     public String getTime() {
@@ -41,14 +44,6 @@ public class Show {
         this.date = date;
     }
 
-    public Hall getHall() {
-        return hall;
-    }
-
-    public void setHall(Hall hall) {
-        this.hall = hall;
-    }
-
     public String getName() {
         return name;
     }
@@ -57,8 +52,13 @@ public class Show {
         this.name = name;
     }
 
-    public ArrayList<Show> getShow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public String toString(){
+        return name;
     }
 
+    @Override
+    public int compareTo(Show o) {
+        return this.name.compareTo(o.name);
+    }
 }

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class Database {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DATABASE_USR = "root";
-    private static final String DATABASE_PWD = "root";
+    private static final String DATABASE_PWD = "Frydensberg08";
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306";
     private static final String SCHEMA = "/BioTrio";
     private Connection con;
@@ -48,10 +48,11 @@ public class Database {
     public static Database getDb() {
         if (db == null) {
             db = new Database();
-            
         }
         return db;
     }
+    
+    
     
 //        public ArrayList<Show> getMovies() {
 //        ArrayList<Show> str = new ArrayList<>();
@@ -72,5 +73,9 @@ public class Database {
 //        return str;
 //    
 //}
+
+    public Connection getCon() {
+        return con;
+    }
 
 }

@@ -14,16 +14,12 @@ public class Costumer {
     private String firstName;
     private String lastName;
     private int phoneNumber;
-    private String cardNumber; 
-    private int controlDigits;
     private int age;
 
-    public Costumer(String firstName, String lastName, int phoneNumber, String cardNumber, int controlDigits, int age) {
+    public Costumer(String firstName, String lastName, int phoneNumber, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.cardNumber = cardNumber;
-        this.controlDigits = controlDigits;
         this.age = age;
     }
 
@@ -60,22 +56,6 @@ public class Costumer {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public int getControlDigits() {
-        return controlDigits;
-    }
-
-    public void setControlDigits(int controlDigits) {
-        this.controlDigits = controlDigits;
     }
 
     public int getAge() {
