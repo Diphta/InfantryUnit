@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class TicketHandler {
     private ArrayList<Ticket> tickets;
-    private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
     private final String noTicketType = "Vælg venligst en billet type";
+    private final String tooManyTickets = "Du kan højst købe 4 billetter ad gangen.";
     private String discountCode = "blfr2711";
     private String discountType = "Black friday 20 % rabat \n";
     
