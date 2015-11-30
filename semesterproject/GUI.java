@@ -229,7 +229,7 @@ public class GUI extends javax.swing.JFrame {
 
         ticketTypeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Billet type", "Voksen billet", "Børne billet", "Pensionist billet" }));
 
-        payButtonHall1.setText("Bestil");
+        payButtonHall1.setText("Videre");
         payButtonHall1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 payButtonHall1ActionPerformed(evt);
@@ -245,7 +245,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(seatChoiceSal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatChoiceSal1Layout.createSequentialGroup()
-                        .addGap(0, 442, Short.MAX_VALUE)
+                        .addGap(0, 436, Short.MAX_VALUE)
                         .addComponent(ticketTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(payButtonHall1)))
@@ -465,7 +465,7 @@ public class GUI extends javax.swing.JFrame {
 
         phoneField.setText("tlf Nummer");
 
-        PayButton.setText("Betal");
+        PayButton.setText("Bestil");
         PayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PayButtonActionPerformed(evt);
