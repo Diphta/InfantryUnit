@@ -20,8 +20,10 @@ import javax.swing.JOptionPane;
  * @author Dino
  */
 public class GUI extends javax.swing.JFrame {
+
     private Hall hall;
     private TicketHandler tktHandler;
+
     /**
      * Creates new form Test
      */
@@ -29,6 +31,17 @@ public class GUI extends javax.swing.JFrame {
         hall = new Hall(14, 20);
         tktHandler = new TicketHandler();
         initComponents();
+        addMovies();
+    }
+
+    public void addMovies() {
+//        movieBox.setEnabled(false);
+//        movieBox.removeAllItems();
+//        ArrayList<Show> movies = Database.getDb().getMovies();
+//        for (String movie : movies) {
+//            movieBox.addItem(movie);
+//        }
+//        movieBox.setEnabled(true);
 
     }
 
@@ -46,7 +59,7 @@ public class GUI extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        movieBox = new javax.swing.JComboBox();
         seatChoiceSal1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel(){
             public void paint(Graphics g) {
@@ -123,9 +136,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/semesterproject/Udklip111.PNG"))); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        movieBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                movieBoxActionPerformed(evt);
             }
         });
 
@@ -145,7 +158,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox4, 0, 344, Short.MAX_VALUE)
+                .addComponent(movieBox, 0, 344, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(228, 228, 228))
@@ -160,7 +173,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(111, 111, 111)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(movieBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 129, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -571,7 +584,7 @@ public class GUI extends javax.swing.JFrame {
             customerFail = true;
             nameField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-        
+
         if (lastNameField.getText().matches("[a-zA-Z]+")) {
             lastNameField.setBorder(null);
             lastNameField.updateUI();
@@ -579,7 +592,7 @@ public class GUI extends javax.swing.JFrame {
             customerFail = true;
             lastNameField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-        
+
         if (ageField.getText().matches("[0-9]+") && ageField.getText().length() <= 3) {
             ageField.setBorder(null);
             ageField.updateUI();
@@ -595,11 +608,12 @@ public class GUI extends javax.swing.JFrame {
             customerFail = true;
             phoneField.setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-        
+
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         if (!customerFail) {
             cl.next(jPanel1);
         }
+
     }//GEN-LAST:event_PayButtonActionPerformed
 
     private void payButtonHall1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonHall1ActionPerformed
@@ -607,8 +621,8 @@ public class GUI extends javax.swing.JFrame {
         cl.addLayoutComponent("Payment", payment);
         if (tktHandler.getTickets().size() > 0) {
             cl.show(jPanel1, "Payment");
-            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
-                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
+            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n"
+                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes()
                     + "\n" + "Samlet pris = " + tktHandler.getTotal() + " kr");
             movieInfo.setEditable(false);
             discountField.setEditable(false);
@@ -635,17 +649,19 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_payButtonHall3ActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        Show selectedShow;
-        selectedShow = (Show) jComboBox1.getSelectedItem();
-        if (selectedShow != null) {
-            jComboBox3.removeAllItems();
-            ArrayList<Show> tempShow = selectedShow.getShow();
-            for (Show show : tempShow) {
-                jComboBox3.addItem(show);
-            }
-        }
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    private void movieBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieBoxActionPerformed
+//        Show selectedShow;
+//        if (movieBox.isEnabled()) {
+//            selectedShow = (Show) jComboBox1.getSelectedItem();
+//            if (selectedShow != null) {
+//                jComboBox3.removeAllItems();
+//                ArrayList<Show> tempShow = selectedShow.getShow();
+//                for (Show show : tempShow) {
+//                    jComboBox3.addItem(show);
+//                }
+//            }
+//        }
+    }//GEN-LAST:event_movieBoxActionPerformed
 
     private void seatChoiceSal1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seatChoiceSal1MousePressed
         // TODO add your handling code here:
@@ -653,43 +669,46 @@ public class GUI extends javax.swing.JFrame {
 
     private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
         if (tktHandler.getTickets().size() == 4) {
-           JOptionPane.showMessageDialog(this, tktHandler.getTooManyTickets());
+            JOptionPane.showMessageDialog(this, tktHandler.getTooManyTickets());
         } else {
             String ticketType;
             ticketType = (String) ticketTypeBox.getSelectedItem();
             int seat = hall.translateX(evt.getX());
             int row = hall.translateY(evt.getY());
             Ticket ticket = new Ticket();
-            if(seat >= 0 && row >= 0){
-            if(evt.getButton()==1){
-            switch (ticketType) {
-                case "Voksen billet": ticket = new TicketAdult();
-                    tktHandler.getTickets().add(ticket);
-                     hall.bookSeat(row, seat);
-                    break;
-                case "Pensionist billet": ticket = new TicketElder();
-                    tktHandler.getTickets().add(ticket);
-                     hall.bookSeat(row, seat);
-                    break;
-                case "Børne billet": ticket =  new TicketMinor();
-                    tktHandler.getTickets().add(ticket);
-                     hall.bookSeat(row, seat);
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(this, tktHandler.getNoTicketType());
-                    break;
-            }
-            
-            
-            }
-            if(evt.getButton()==3){
-                hall.clearSeat(row, seat);
+            if (seat >= 0 && row >= 0) {
+                if (evt.getButton() == 1) {
+                    switch (ticketType) {
+                        case "Voksen billet":
+                            ticket = new TicketAdult();
+                            tktHandler.getTickets().add(ticket);
+                            hall.bookSeat(row, seat);
+                            break;
+                        case "Pensionist billet":
+                            ticket = new TicketElder();
+                            tktHandler.getTickets().add(ticket);
+                            hall.bookSeat(row, seat);
+                            break;
+                        case "Børne billet":
+                            ticket = new TicketMinor();
+                            tktHandler.getTickets().add(ticket);
+                            hall.bookSeat(row, seat);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(this, tktHandler.getNoTicketType());
+                            break;
+                    }
+
+                }
+                if (evt.getButton() == 3) {
+                    hall.clearSeat(row, seat);
+                }
+               
             }
         }
-        }
-        
+
         jPanel5.repaint();
-        
+
     }//GEN-LAST:event_jPanel5MousePressed
 
     private void discountBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountBoxActionPerformed
@@ -700,7 +719,7 @@ public class GUI extends javax.swing.JFrame {
             discountField.setEditable(false);
             discountButton.setEnabled(false);
         }
-        
+
     }//GEN-LAST:event_discountBoxActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -711,12 +730,11 @@ public class GUI extends javax.swing.JFrame {
 
     private void discountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountButtonActionPerformed
         if (discountField.getText().equalsIgnoreCase(tktHandler.getDiscountCode())) {
-                movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n" 
-                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes() 
-                    + "\n" + tktHandler.getDiscountType() + "Samlet pris = " + (int)(tktHandler.getTotal() * 0.80) + " kr");
-                } 
+            movieInfo.setText("Du har bestilt " + tktHandler.getTickets().size() + " billetter\n"
+                    + "til filmen .....\n" + "\n" + "Billetter bestilt:  \n" + tktHandler.getTicketTypes()
+                    + "\n" + tktHandler.getDiscountType() + "Samlet pris = " + (int) (tktHandler.getTotal() * 0.80) + " kr");
+        }
     }//GEN-LAST:event_discountButtonActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -767,7 +785,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -789,6 +806,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextField lastNameField;
+    private javax.swing.JComboBox movieBox;
     private javax.swing.JTextArea movieInfo;
     private javax.swing.JTextField nameField;
     private javax.swing.JButton payButtonHall1;
