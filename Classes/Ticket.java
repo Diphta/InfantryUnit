@@ -5,10 +5,7 @@
  */
 package Classes;
 
-/**
- *
- * @author Simon
- */
+
 public class Ticket {
     private Costumer costumer;
     String type;

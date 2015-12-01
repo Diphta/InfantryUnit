@@ -10,10 +10,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 
-/**
- *
- * @author philip
- */
+
 //public class Seat {
 //    private boolean available = true;
 //    private String seatNumber = "1";

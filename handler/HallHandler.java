@@ -11,10 +11,6 @@
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
 //
-///**
-// *
-// * @author Simon
-// */
 //public class HallHandler {
 //    private static HallHandler instance;
 //    private HallHandler(){

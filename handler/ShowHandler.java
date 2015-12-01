@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Tanja
- */
+
 public class ShowHandler {
 
     private static ShowHandler instance;

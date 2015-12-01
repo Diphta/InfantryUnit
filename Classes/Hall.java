@@ -9,10 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-/**
- *
- * @author philip
- */
+
 public class Hall {
     private boolean[][] seats;
     public static final int OFFSET_X = 10;

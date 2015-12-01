@@ -5,10 +5,7 @@
  */
 package Classes;
 
-/**
- *
- * @author Simon
- */
+
 public class TicketMinor extends Ticket {
     
     public TicketMinor(/*Costumer costumer*/) {

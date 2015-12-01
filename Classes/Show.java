@@ -7,10 +7,7 @@ package Classes;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author philip
- */
+
 public class Show implements Comparable<Show> {
 
     private int id;

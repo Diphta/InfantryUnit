@@ -16,10 +16,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Dino
- */
+
 public class GUI extends javax.swing.JFrame {
 
     private Hall hall;

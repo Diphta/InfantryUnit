@@ -8,10 +8,7 @@ package handler;
 import Classes.Ticket;
 import java.util.ArrayList;
 
-/**
- *
- * @author philip
- */
+
 public class TicketHandler {
     private ArrayList<Ticket> tickets;
     private final String noTicketType = "Vælg venligst en billet type";

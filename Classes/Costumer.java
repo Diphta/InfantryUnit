@@ -5,10 +5,7 @@
  */
 package Classes;
 
-/**
- *
- * @author Bruger
- */
+
 public class Costumer {
     
     private String firstName;
