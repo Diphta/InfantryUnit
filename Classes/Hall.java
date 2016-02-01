@@ -18,7 +18,7 @@ public class Hall {
     public static final int SEAT_HEIGHT = 17;
     public static final int ROW_DIST = 10;
     public static final int SEAT_DIST = 5;
-    //private final String name;
+    
 
     public Hall(int rows, int seats){
         this.seats = new boolean[rows][seats];
@@ -91,5 +91,3 @@ public class Hall {
     }
     
 }
-
-
